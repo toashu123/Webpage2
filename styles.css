@@ -460,7 +460,7 @@ body {
 
 .arrow-right {
     position: absolute;
-    top: 11%;
+    top: 80px;
     left: 70%;
     width: 30px;
     height: 100px;
@@ -703,36 +703,41 @@ body {
         font-size: 2rem;
     }
     
+    /* COMPLIANCE SECTION - FIXED FOR MOBILE */
     .compliance-matters {
-        padding: 3rem 1.5rem 2.5rem;
+        padding: 3rem 1rem 2.5rem; /* Reduced horizontal padding */
     }
     
     .compliance-container {
         display: flex;
-        
         flex-direction: column;
         gap: 2rem;
+        padding: 0; /* Remove any extra padding */
     }
     
     /* Mobile order: Title → Description → Image → Features */
     .compliance-header {
         order: 1;
-    
+        margin-left: 0; /* REMOVED - this was causing alignment issues */
+        padding: 0 1rem; /* Added padding instead for better control */
     }
     
     .compliance-description-wrapper {
         order: 2;
         margin-right: 0;
+        padding: 0 1rem; /* Add padding for content breathing room */
     }
     
     .compliance-illustration {
         order: 3;
         padding: 1rem 0;
+        margin: 0; /* Remove margins */
     }
     
     .compliance-features {
         order: 4;
         margin-right: 0;
+        padding: 0 1rem; /* Add padding instead of margin */
     }
     
     .compliance-title {
@@ -745,25 +750,23 @@ body {
         font-size: 0.95rem;
         text-align: center;
         margin-bottom: 1.5rem;
-        color:black;
+        color: black;
     }
     
     .compliance-img {
         max-width: 100%;
         margin-bottom: 1rem;
     }
-    .compliance-header
-    {
-        margin-left: 18%;
-    }
     
-    .arrow-right{
+    /* Keep arrow positions as you had them */
+    .arrow-right {
         top: 285%;
         left: 115%;
         right: -10px;
         width: 30px;
         max-height: 90px;
     }
+    
     .arrow-bottom-left {
         left: -10px;
         width: 90px;
@@ -844,15 +847,20 @@ body {
     }
     
     .compliance-matters {
-        padding: 2rem 1rem 2rem;
+        padding: 2rem 0.5rem; /* Even tighter padding for small screens */
     }
     
-    .compliance-matters {
-        padding: 2rem 1rem;
+    .compliance-header {
+        margin-left: 0; /* REMOVED */
+        padding: 0 0.5rem; /* Reduced padding */
     }
-    .compliance-header
-    {
-        margin-left: 18%;
+    
+    .compliance-description-wrapper {
+        padding: 0 0.5rem;
+    }
+    
+    .compliance-features {
+        padding: 0 0.5rem;
     }
     
     .compliance-title {
@@ -862,7 +870,7 @@ body {
     
     .compliance-description {
         font-size: 0.9rem;
-        color:black;
+        color: black;
     }
     
     .compliance-feature-card {
@@ -882,9 +890,3 @@ body {
         font-size: 0.85rem;
     }
 }
-
-
-
-
-
-
