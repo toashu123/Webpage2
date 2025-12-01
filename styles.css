@@ -1,4 +1,4 @@
-/* styles.css */
+/* styles.css - COMPLETE RESPONSIVE FIXES - FIGMA MATCHED */
 
 * {
     margin: 0;
@@ -189,12 +189,14 @@ body {
     min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-container {
     max-width: 1400px;
     margin: 0 auto;
-    
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
@@ -431,11 +433,14 @@ body {
 .compliance-matters {
     padding: 5rem 2rem 4rem;
     background: var(--white);
+    position: relative;
+    overflow: hidden;
 }
 
 .compliance-container {
     max-width: 1400px;
     margin: 0 auto;
+    width: 100%;
     display: grid;
     grid-template-columns: 45% 55%;
     grid-template-rows: auto auto;
@@ -571,7 +576,6 @@ body {
     line-height: 1.6;
 }
 
-
 @media (max-width: 1200px) {
     .compliance-container {
         grid-template-columns: 1fr 1fr;
@@ -600,6 +604,7 @@ body {
     .person-img {
         max-width: 450px;
     }
+    
     .compliance-container {
         grid-template-columns: 1fr 1fr;
         gap: 2rem 3rem;
@@ -626,8 +631,6 @@ body {
         width: 60px;
     }
 }
-
-
 
 @media (max-width: 768px) {
     .desktop-nav,
@@ -656,7 +659,7 @@ body {
     }
     
     .hero {
-        padding: 3rem 1.5rem;
+        padding: 2.5rem 1.5rem;
         min-height: auto;
     }
     
@@ -679,6 +682,8 @@ body {
     
     .features-list {
         text-align: left;
+        display: inline-block;
+        margin: 0 auto 2.5rem;
     }
     
     .cta-buttons {
@@ -692,89 +697,131 @@ body {
     }
     
     .hero-image {
-        min-height: 400px;
+        min-height: 350px;
+        display: block;
     }
     
     .person-img {
-        max-width: 400px;
+        max-width: 100%;
     }
     
     .section-title {
         font-size: 2rem;
     }
     
-    /* COMPLIANCE SECTION - FIXED FOR MOBILE */
+    /* ✅ COMPLIANCE SECTION - MOBILE */
     .compliance-matters {
-        padding: 3rem 1rem 2.5rem; /* Reduced horizontal padding */
+        padding: 3rem 1.5rem 2.5rem;
     }
     
     .compliance-container {
         display: flex;
         flex-direction: column;
         gap: 2rem;
-        padding: 0; /* Remove any extra padding */
+        padding: 0;
+        align-items: center;
+        text-align: center;
     }
     
-    /* Mobile order: Title → Description → Image → Features */
     .compliance-header {
         order: 1;
-        margin-left: 0; /* REMOVED - this was causing alignment issues */
-        padding: 0 1rem; /* Added padding instead for better control */
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        margin-bottom: 1rem;
     }
     
     .compliance-description-wrapper {
         order: 2;
         margin-right: 0;
-        padding: 0 1rem; /* Add padding for content breathing room */
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    /* ✅ ARROW AFTER DESCRIPTION - DARKER */
+    .compliance-description-wrapper::after {
+        content: '';
+        display: block;
+        width: 50px;
+        height: 70px;
+        background-image: url('/Assets/Vector2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        right: 10%;
+        bottom: -40px;
+        opacity: 0.8; /* ✅ Changed from 0.5 to 0.8 */
+        z-index: 1;
+        pointer-events: none;
     }
     
     .compliance-illustration {
         order: 3;
-        padding: 1rem 0;
-        margin: 0; /* Remove margins */
+        padding: 2rem 0 3rem;
+        margin: 0;
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+    }
+    
+    /* ✅ HORIZONTAL ARROW - DARKER */
+    .compliance-illustration::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 30px;
+        background-image: url('/Assets/Vector1.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        left: 10%;
+        bottom: 10px;
+        opacity: 0.8; /* ✅ Changed from 0.5 to 0.8 */
+        z-index: 1;
+        pointer-events: none;
     }
     
     .compliance-features {
         order: 4;
         margin-right: 0;
-        padding: 0 1rem; /* Add padding instead of margin */
+        width: 100%;
+        max-width: 600px;
     }
     
     .compliance-title {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
         text-align: center;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
     
     .compliance-description {
         font-size: 0.95rem;
         text-align: center;
-        margin-bottom: 1.5rem;
         color: black;
+        line-height: 1.8;
     }
     
     .compliance-img {
         max-width: 100%;
-        margin-bottom: 1rem;
+        height: auto;
     }
     
-    /* Keep arrow positions as you had them */
+    /* Hide HTML arrow images on mobile */
     .arrow-right {
-        top: 285%;
-        left: 115%;
-        right: -10px;
-        width: 30px;
-        max-height: 70px;
+        display: none !important;
     }
     
     .arrow-bottom-left {
-        left: -10px;
-        width: 90px;
-        max-height: 25px;
+        display: none !important;
     }
     
     .compliance-feature-card {
         padding: 1.25rem;
+        text-align: left;
     }
     
     .feature-icon-wrapper {
@@ -797,7 +844,7 @@ body {
     }
     
     .logo-icon {
-        height: 35px;
+        height: 32px;
     }
     
     .hero {
@@ -805,88 +852,341 @@ body {
     }
     
     .hero-content h1 {
-        font-size: 1.75rem;
-        line-height: 1.35;
+        font-size: 1.65rem;
+        line-height: 1.4;
+        margin-bottom: 1rem;
     }
     
     .hero-description {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .feature-item {
+        font-size: 0.9rem;
+        gap: 0.5rem;
+    }
+    
+    .check-icon {
+        width: 20px;
+        height: 20px;
     }
     
     .cta-buttons {
         flex-direction: column;
+        gap: 0.75rem;
     }
     
     .btn-primary,
     .btn-secondary {
         width: 100%;
+        padding: 0.85rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .hero-image {
+        display: block;
+        min-height: 300px;
     }
     
     .person-img {
-        max-width: 320px;
-    }
-    
-    .rating-badge {
-        transform: scale(0.8);
-        right: 0;
-    }
-    
-    .trust-badge {
-        transform: scale(0.85);
-        left: 0;
-    }
-    
-    .decorative-arrows {
-        width: 60px;
+        max-width: 280px;
     }
     
     .section-title {
         font-size: 1.5rem;
         line-height: 1.35;
-        margin-bottom: 0;
     }
     
     .compliance-matters {
-        padding: 2rem 0.5rem; /* Even tighter padding for small screens */
+        padding: 2rem 1rem;
     }
     
-    .compliance-header {
-        margin-left: 0; /* REMOVED */
-        padding: 0 0.5rem; /* Reduced padding */
-    }
-    
-    .compliance-description-wrapper {
-        padding: 0 0.5rem;
-    }
-    
-    .compliance-features {
-        padding: 0 0.5rem;
+    .compliance-container {
+        gap: 1.5rem;
     }
     
     .compliance-title {
         font-size: 1.5rem;
-        line-height: 1.35;
+        line-height: 1.4;
+        margin-bottom: 1rem;
     }
     
     .compliance-description {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
+        line-height: 1.65;
         color: black;
+    }
+    
+    /* Smaller arrow after description */
+    .compliance-description-wrapper::after {
+        width: 40px;
+        height: 60px;
+        right: 10%;
+        bottom: -35px;
+    }
+    
+    .compliance-illustration {
+        padding: 1.5rem 0 2.5rem;
+    }
+    
+    .compliance-illustration::after {
+        width: 65px;
+        height: 25px;
+        left: 10%;
+        bottom: 10px;
+    }
+    
+    .compliance-img {
+        max-width: 280px;
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    
+    .compliance-features {
+        max-width: 100%;
+        gap: 1rem;
     }
     
     .compliance-feature-card {
         padding: 1rem;
+        gap: 1rem;
     }
     
     .feature-icon-wrapper {
-        width: 40px;
-        height: 40px;
+        width: 38px;
+        height: 38px;
     }
     
     .feature-title {
-        font-size: 1rem;
+        font-size: 0.95rem;
+        margin-bottom: 0.35rem;
     }
     
     .feature-description {
+        font-size: 0.82rem;
+        line-height: 1.5;
+    }
+}
+
+
+
+@media (max-width: 360px) {
+    .nav-container {
+        padding: 0 0.75rem;
+    }
+    
+    .logo-icon {
+        height: 28px;
+    }
+    
+    .hamburger span {
+        width: 22px;
+    }
+    
+    .hero {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.5rem;
+        line-height: 1.35;
+    }
+    
+    .hero-description {
         font-size: 0.85rem;
+    }
+    
+    .feature-item {
+        font-size: 0.85rem;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .person-img {
+        max-width: 240px;
+    }
+    
+    .compliance-matters {
+        padding: 1.5rem 0.75rem;
+    }
+    
+    .compliance-title {
+        font-size: 1.35rem;
+        line-height: 1.35;
+    }
+    
+    .compliance-description {
+        font-size: 0.82rem;
+    }
+    
+    .compliance-description-wrapper::after {
+        width: 35px;
+        height: 50px;
+        right: 8%;
+        bottom: -30px;
+    }
+    
+    .compliance-img {
+        max-width: 240px;
+    }
+    
+    .compliance-illustration::after {
+        width: 55px;
+        height: 22px;
+        left: 8%;
+    }
+    
+    .compliance-feature-card {
+        padding: 0.85rem;
+        gap: 0.85rem;
+    }
+    
+    .feature-icon-wrapper {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .feature-title {
+        font-size: 0.9rem;
+    }
+    
+    .feature-description {
+        font-size: 0.78rem;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .hero-content {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .features-list {
+        text-align: left;
+        display: inline-block;
+        margin: 0 auto 2.5rem;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+    
+    .hero-image {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+    
+    .compliance-matters {
+        padding: 4rem 3rem;
+    }
+    
+    .compliance-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2.5rem;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .compliance-header {
+        grid-column: unset;
+        grid-row: unset;
+        width: 100%;
+        text-align: center;
+        position: relative;
+    }
+    
+    .compliance-description-wrapper {
+        grid-column: unset;
+        grid-row: unset;
+        width: 100%;
+        margin: 0;
+        position: relative;
+    }
+    
+    .compliance-description-wrapper::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 80px;
+        background-image: url('/Assets/Vector2.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        right: 10%;
+        bottom: -45px;
+        opacity: 0.8; /* ✅ Darker */
+        pointer-events: none;
+    }
+    
+    .compliance-illustration {
+        grid-column: unset;
+        grid-row: unset;
+        width: 100%;
+        max-width: 450px;
+        position: relative;
+        padding: 2rem 0 3rem;
+    }
+    
+    .compliance-illustration::after {
+        content: '';
+        display: block;
+        width: 90px;
+        height: 35px;
+        background-image: url('/Assets/Vector1.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        left: 10%;
+        bottom: 10px;
+        opacity: 0.8; /* ✅ Darker */
+        pointer-events: none;
+    }
+    
+    .compliance-features {
+        grid-column: unset;
+        grid-row: unset;
+        width: 100%;
+        margin: 0;
+    }
+    
+    .compliance-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .compliance-description {
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .arrow-right {
+        display: none !important;
+    }
+    
+    .arrow-bottom-left {
+        display: none !important;
+    }
+    
+    .compliance-feature-card {
+        text-align: left;
     }
 }
