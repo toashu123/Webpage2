@@ -738,9 +738,10 @@ body {
         max-width: 600px;
         position: relative;
         z-index: 2;
+        padding-bottom: 50px; /* ✅ Add padding for arrow space */
     }
     
-    /* ✅ ARROW AFTER DESCRIPTION - DARKER */
+    /* ✅ ARROW AFTER DESCRIPTION - PROPERLY POSITIONED */
     .compliance-description-wrapper::after {
         content: '';
         display: block;
@@ -751,9 +752,9 @@ body {
         background-repeat: no-repeat;
         background-position: center;
         position: absolute;
-        right: 10%;
-        bottom: -40px;
-        opacity: 0.8; /* ✅ Changed from 0.5 to 0.8 */
+        right: 15%;
+        bottom: -10px; /* ✅ Adjusted from -40px */
+        opacity: 0.8;
         z-index: 1;
         pointer-events: none;
     }
@@ -767,7 +768,7 @@ body {
         position: relative;
     }
     
-    /* ✅ HORIZONTAL ARROW - DARKER */
+    /* ✅ HORIZONTAL ARROW BELOW ILLUSTRATION */
     .compliance-illustration::after {
         content: '';
         display: block;
@@ -780,7 +781,7 @@ body {
         position: absolute;
         left: 10%;
         bottom: 10px;
-        opacity: 0.8; /* ✅ Changed from 0.5 to 0.8 */
+        opacity: 0.8;
         z-index: 1;
         pointer-events: none;
     }
@@ -803,6 +804,7 @@ body {
         text-align: center;
         color: black;
         line-height: 1.8;
+        padding: 0 1rem; /* ✅ Add padding to prevent text from touching edges */
     }
     
     .compliance-img {
@@ -911,12 +913,18 @@ body {
         font-size: 1.5rem;
         line-height: 1.4;
         margin-bottom: 1rem;
+        padding: 0 0.5rem; /* ✅ Add padding */
+    }
+    
+    .compliance-description-wrapper {
+        padding-bottom: 45px; /* ✅ Adjusted padding */
     }
     
     .compliance-description {
         font-size: 0.88rem;
         line-height: 1.65;
         color: black;
+        padding: 0 0.5rem; /* ✅ More padding on small screens */
     }
     
     /* Smaller arrow after description */
@@ -924,7 +932,7 @@ body {
         width: 40px;
         height: 60px;
         right: 10%;
-        bottom: -35px;
+        bottom: -5px; /* ✅ Adjusted */
     }
     
     .compliance-illustration {
@@ -970,8 +978,6 @@ body {
         line-height: 1.5;
     }
 }
-
-
 
 @media (max-width: 360px) {
     .nav-container {
@@ -1020,17 +1026,23 @@ body {
     .compliance-title {
         font-size: 1.35rem;
         line-height: 1.35;
+        padding: 0 0.25rem;
+    }
+    
+    .compliance-description-wrapper {
+        padding-bottom: 40px;
     }
     
     .compliance-description {
         font-size: 0.82rem;
+        padding: 0 0.25rem; /* ✅ Less padding for very small screens */
     }
     
     .compliance-description-wrapper::after {
         width: 35px;
         height: 50px;
-        right: 8%;
-        bottom: -30px;
+        right: 5%;
+        bottom: 0;
     }
     
     .compliance-img {
@@ -1040,7 +1052,7 @@ body {
     .compliance-illustration::after {
         width: 55px;
         height: 22px;
-        left: 8%;
+        left: 5%;
     }
     
     .compliance-feature-card {
@@ -1061,6 +1073,7 @@ body {
         font-size: 0.78rem;
     }
 }
+
 
 
 @media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
