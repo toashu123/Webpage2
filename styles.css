@@ -632,6 +632,40 @@ body {
     }
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+    .nav-container {
+        padding: 0 1.5rem;
+    }
+    
+    .nav-links {
+        gap: 1.5rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    
+    .contact-btn {
+        padding: 0.65rem 1.25rem;
+        font-size: 0.9rem;
+    }
+    
+    .logo-icon {
+        height: 40px;
+    }
+}
+
+@media (max-width: 900px) and (min-width: 769px) {
+    .desktop-nav,
+    .desktop-btn {
+        display: none !important;
+    }
+    
+    .hamburger {
+        display: flex !important;
+    }
+}
+
 @media (max-width: 768px) {
     .desktop-nav,
     .desktop-btn {
